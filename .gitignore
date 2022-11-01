@@ -1,0 +1,10 @@
+.idea/*
+*.py[cod]
+__pycache__
+
+*.mo
+
+.env
+
+.coverage
+cobertura.xml

@@ -1,0 +1,48 @@
+version: '3.7'
+
+services:
+  bot:
+    build:
+      context: .
+    depends_on:
+      - redis
+      - postgres
+    environment:
+      BOT_PUBLIC_PORT: 80
+      DOMAIN:
+      POSTGRES_DB:
+      POSTGRES_HOST: postgres
+      POSTGRES_PASSWORD:
+      POSTGRES_PORT: 5432
+      POSTGRES_USER:
+      REDIS_DB_FSM:
+      REDIS_DB_JOBSTORE:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      TELEGRAM_TOKEN:
+    command:
+      - run-polling
+    ports:
+      - ${BOT_PUBLIC_PORT}:80
+
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redis-data:/data
+    ports:
+      - ${REDIS_PORT}:6379
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB:
+      POSTGRES_PASSWORD:
+      POSTGRES_USER:
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - ${POSTGRES_PORT}:5432
+
+volumes:
+  redis-data:
+  postgres-data:
