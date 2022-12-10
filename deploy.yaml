@@ -1,0 +1,25 @@
+---
+- hosts: webservers
+  vars:
+    ansible_python_interpreter: /bin/python3
+  tasks:
+  - name: install pip3
+    apt: name=python3-pip state=present
+    become: true
+  - name: install certain python modules for docker
+    pip:
+      name: "{{ item.name }}"
+      state: present
+    with_items:
+      - { name: docker-compose }
+  - name: Checkout
+    git:
+      repo: https://github.com/aalekseevx/aurora-devops.git
+      dest: ~/checkout
+  - name: Compxx
+    community.docker.docker_compose:
+      project_src: ~/checkout
+      restarted: true
+      files:
+        - docker-compose.yml
+
