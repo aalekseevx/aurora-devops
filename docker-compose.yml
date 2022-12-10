@@ -2,8 +2,7 @@ version: '3.7'
 
 services:
   bot:
-    build:
-      context: .
+    image: aalekseevx/aurora
     depends_on:
       - redis
       - postgres
