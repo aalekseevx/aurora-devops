@@ -16,7 +16,7 @@
     git:
       repo: https://github.com/aalekseevx/aurora-devops.git
       dest: ~/checkout
-  - name: Compxx
+  - name: Run docker compose
     community.docker.docker_compose:
       project_src: ~/checkout
       restarted: true
