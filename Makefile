@@ -1,5 +1,3 @@
-include .env
-
 tail := 200
 PYTHONPATH := $(shell pwd):${PYTHONPATH}
 
