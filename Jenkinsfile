@@ -11,13 +11,13 @@ pipeline {
         
         stage('Poetry Configuration') {
             steps {
-                sh "poetry install --no-root"
+                sh "/var/jenkins_home/.local/bin/poetry install --no-root"
             }
         }
 
         stage('Test') {
             steps {
-                sh 'poetry run task test'
+                sh '/var/jenkins_home/.local/bin/poetry run task test'
             }
         }
     }
