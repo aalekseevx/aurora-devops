@@ -36,6 +36,9 @@ flake8:
 
 lint: isort black flake8
 
+test:
+	poetry run task test
+
 entrypoint:
 	poetry run bash ../docker-entrypoint.sh ${args}
 
