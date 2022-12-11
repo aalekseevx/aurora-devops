@@ -5,7 +5,7 @@ version = "0.1.0"
 authors = ["Aleksandr Alekseev <https://github.com/aalekseevx>"]
 
 [tool.poetry.dependencies]
-python = "^3.8, <3.9"
+python = "^3.9, <3.10"
 aiogram = "^2.11.2"
 click = "^7.1.2"
 loguru = "^0.5.3"
