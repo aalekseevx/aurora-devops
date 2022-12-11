@@ -18,6 +18,12 @@ pipeline {
                 sh "/var/jenkins_home/.local/bin/poetry install --no-root"
             }
         }
+        
+        stage('Build') {
+            steps {
+                sh "/var/jenkins_home/.local/bin/poetry run pybabel compile -d locales -D bot"
+            }
+        }
 
         stage('Test') {
             steps {
