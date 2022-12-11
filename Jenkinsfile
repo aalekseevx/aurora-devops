@@ -3,6 +3,7 @@ pipeline {
     
     environment {
         TELEGRAM_TOKEN = credentials('telegram-token')
+        CODECOV_TOKEN = credentials('codecov-token')
     }
 
     stages {
@@ -28,6 +29,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'make test'
+                sh 'codecov -t ${CODECOV_TOKEN}'
             }
         }
         
