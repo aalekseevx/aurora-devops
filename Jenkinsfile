@@ -11,7 +11,7 @@ pipeline {
         
         stage('Poetry Configuration') {
             steps {
-                sh 'apt-get update && apt-get install -y curl'
+                sh 'sudo apt-get update && sudo apt-get install -y curl python'
                 sh "curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python"
                 sh "$HOME/.poetry/bin/poetry install --no-root"
                 sh "$HOME/.poetry/bin/poetry shell --no-interaction"
