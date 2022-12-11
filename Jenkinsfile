@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    
+    environment {
+        TELEGRAM_TOKEN = credentials('telegram-token')
+    }
 
     stages {
         stage('Checkout') {
