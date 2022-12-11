@@ -38,5 +38,11 @@ pipeline {
                 sh 'make lint'
             }
         }
+        
+        stage('Container build') {
+            steps {
+                sh 'docker build -t aalekseevx/aurora-devops:latest .'
+            }
+        }
     }
 }
