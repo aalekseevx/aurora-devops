@@ -15,19 +15,25 @@ pipeline {
         
         stage('Poetry Configuration') {
             steps {
-                sh "/var/jenkins_home/.local/bin/poetry install --no-root"
+                sh "poetry install --no-root"
             }
         }
         
         stage('Build') {
             steps {
-                sh "/var/jenkins_home/.local/bin/poetry run pybabel compile -d locales -D bot"
+                sh "make texts-compile"
             }
         }
 
         stage('Test') {
             steps {
-                sh '/var/jenkins_home/.local/bin/poetry run task test'
+                sh 'make test'
+            }
+        }
+        
+        stage('Lint') {
+            steps {
+                sh 'make lint'
             }
         }
     }
