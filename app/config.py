@@ -2,7 +2,7 @@ import secrets
 
 from envparse import env
 
-TELEGRAM_TOKEN = env.str("TELEGRAM_TOKEN")
+TELEGRAM_TOKEN = env.str("TELEGRAM_TOKEN", default="-")
 BOT_PUBLIC_PORT = env.int("BOT_PUBLIC_PORT", default=8080)
 
 DOMAIN = env.str("DOMAIN", default="example.com")
