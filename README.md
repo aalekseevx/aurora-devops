@@ -15,8 +15,3 @@ Build and deployment:
 See Makefile for availiable actions
 
 
-
-
-
-
-
